@@ -4,7 +4,7 @@ plugins {
 }
 
 archivesBaseName = "WaybackAuthLib"
-version = "1.0.0"
+version = "1.0.1-SNAPSHOT"
 group = "de.florianmichael"
 
 repositories {
