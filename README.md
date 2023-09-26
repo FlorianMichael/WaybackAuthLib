@@ -32,7 +32,7 @@ authenticator.setPassword(password);
 authenticator.logIn();
 
 if (authenticator.isLoggedIn()) {
-    final GameProfile profile = authenticator.getSelectedProfile();
+    final GameProfile profile = authenticator.getCurrentProfile();
     
     // Do something with the profile
 }
