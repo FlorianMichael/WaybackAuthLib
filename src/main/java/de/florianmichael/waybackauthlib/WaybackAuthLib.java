@@ -105,8 +105,8 @@ public class WaybackAuthLib {
         if (this.username == null || this.username.isEmpty())
             throw new InvalidCredentialsException("Invalid username.");
 
-        final boolean refreshAccessToken = this.accessToken != null && !this.accessToken.isEmpty();
-        final boolean newAuthentication = this.password != null && !this.password.isEmpty();
+        final var refreshAccessToken = this.accessToken != null && !this.accessToken.isEmpty();
+        final var newAuthentication = this.password != null && !this.password.isEmpty();
 
         if (!refreshAccessToken && !newAuthentication)
             throw new InvalidCredentialsException("Invalid password or access token.");
@@ -118,7 +118,8 @@ public class WaybackAuthLib {
             response = client.post(this.baseURI.resolve(ROUTE_AUTHENTICATE).toURL(), new AuthenticationRequest(Agent.MINECRAFT, this.username, this.password, this.clientToken), AuthenticateRefreshResponse.class);
         }
 
-        if (response == null) throw new InvalidRequestException("Server didn't sent a response.");
+        if (response == null)
+            throw new InvalidRequestException("Server didn't sent a response.");
         if (!response.clientToken.equals(this.clientToken))
             throw new InvalidRequestException("Server token and provided token doesn't match.");
 
@@ -142,7 +143,7 @@ public class WaybackAuthLib {
     }
 
     public boolean checkTokenValidity() {
-        final ValidateRequest request = new ValidateRequest(accessToken, clientToken);
+        final var request = new ValidateRequest(accessToken, clientToken);
 
         try {
             client.post(this.baseURI.resolve(ROUTE_VALIDATE).toURL(), request, Response.class);
@@ -158,8 +159,8 @@ public class WaybackAuthLib {
      * @throws Exception If the server didn't send a response or the client token doesn't match.
      */
     public void logOut() throws Exception {
-        final InvalidateRequest request = new InvalidateRequest(this.clientToken, this.accessToken);
-        final Response response = client.post(this.baseURI.resolve(ROUTE_INVALIDATE).toURL(), request, Response.class); // Mojang doesn't send this request, but it seems useful to invalidate the token.
+        final var request = new InvalidateRequest(this.clientToken, this.accessToken);
+        final var response = client.post(this.baseURI.resolve(ROUTE_INVALIDATE).toURL(), request, Response.class); // Mojang doesn't send this request, but it seems useful to invalidate the token.
 
         if (!this.loggedIn) throw new IllegalStateException("Cannot log out while not logged in.");
 
