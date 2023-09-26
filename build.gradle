@@ -1,0 +1,69 @@
+plugins {
+    id "java"
+    id "maven-publish"
+}
+
+archivesBaseName = "WaybackAuthLib"
+version = "1.0.0-SNAPSHOT"
+group = "de.florianmichael"
+
+repositories {
+    maven {
+        url "https://libraries.minecraft.net"
+    }
+}
+
+dependencies {
+    compileOnly "com.mojang:authlib:5.0.47"
+}
+
+jar {
+    from("LICENSE") { rename { "${it}_${project.archivesBaseName}" } }
+}
+
+publishing {
+    repositories {
+        maven {
+            name = "reposilite"
+            def releasesUrl = "https://maven.lenni0451.net/releases"
+            def snapshotsUrl = "https://maven.lenni0451.net/snapshots"
+            url = project.version.endsWith("SNAPSHOT") ? snapshotsUrl : releasesUrl
+
+            credentials(PasswordCredentials)
+            authentication {
+                basic(BasicAuthentication)
+            }
+        }
+    }
+    publications {
+        maven(MavenPublication) {
+            artifactId = project.archivesBaseName
+            groupId = project.group
+            version = project.version
+
+            from components.java
+
+            pom {
+                name = artifactId
+                description = "Addon for Mojang's AuthLib to support Yggdrasil authentication again"
+                url = "https://github.com/FlorianMichael/WaybackAuthLib"
+                licenses {
+                    license {
+                        name = "Apache-2.0 license"
+                        url = "https://github.com/FlorianMichael/WaybackAuthLib/blob/main/LICENSE"
+                    }
+                }
+                developers {
+                    developer {
+                        id = "FlorianMichael"
+                    }
+                }
+                scm {
+                    connection = "scm:git:git://github.com/FlorianMichael/WaybackAuthLib.git"
+                    developerConnection = "scm:git:ssh://github.com/FlorianMichael/WaybackAuthLib.git"
+                    url = "github.com/FlorianMichael/WaybackAuthLib"
+                }
+            }
+        }
+    }
+}
