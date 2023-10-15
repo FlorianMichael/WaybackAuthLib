@@ -1,11 +1,12 @@
 plugins {
     id "java"
     id "maven-publish"
+    id "signing"
 }
 
-archivesBaseName = "WaybackAuthLib"
-version = "1.0.1-SNAPSHOT"
-group = "de.florianmichael"
+archivesBaseName = project.maven_name
+version = project.maven_version
+group = project.maven_group
 
 repositories {
     mavenCentral()
@@ -19,7 +20,12 @@ dependencies {
 }
 
 jar {
-    from("LICENSE") { rename { "${it}_${project.archivesBaseName}" } }
+    // Rename the project's license file to LICENSE_<project_name> to avoid conflicts
+    from("LICENSE") {
+        rename {
+            "${it}_${project.archivesBaseName}"
+        }
+    }
 }
 
 publishing {
@@ -67,4 +73,14 @@ publishing {
             }
         }
     }
+}
+
+signing {
+    setRequired false
+    sign configurations.archives
+    sign publishing.publications.maven
+}
+
+project.tasks.withType(PublishToMavenRepository).forEach {
+    it.dependsOn(project.tasks.withType(Sign))
 }
