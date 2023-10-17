@@ -4,9 +4,11 @@ plugins {
     id "signing"
 }
 
-archivesBaseName = project.maven_name
-version = project.maven_version
-group = project.maven_group
+base {
+    archivesName = project.maven_name
+    version = project.maven_version
+    group = project.maven_group
+}
 
 repositories {
     mavenCentral()
