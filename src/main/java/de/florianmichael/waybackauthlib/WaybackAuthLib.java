@@ -102,14 +102,16 @@ public class WaybackAuthLib {
      * @throws Exception                   If the server didn't send a response or the client token doesn't match.
      */
     public void logIn() throws Exception {
-        if (this.username == null || this.username.isEmpty())
+        if (this.username == null || this.username.isEmpty()) {
             throw new InvalidCredentialsException("Invalid username.");
+        }
 
         final var refreshAccessToken = this.accessToken != null && !this.accessToken.isEmpty();
         final var newAuthentication = this.password != null && !this.password.isEmpty();
 
-        if (!refreshAccessToken && !newAuthentication)
+        if (!refreshAccessToken && !newAuthentication) {
             throw new InvalidCredentialsException("Invalid password or access token.");
+        }
 
         AuthenticateRefreshResponse response;
         if (refreshAccessToken) {
@@ -118,10 +120,12 @@ public class WaybackAuthLib {
             response = client.post(this.baseURI.resolve(ROUTE_AUTHENTICATE).toURL(), new AuthenticationRequest(Agent.MINECRAFT, this.username, this.password, this.clientToken), AuthenticateRefreshResponse.class);
         }
 
-        if (response == null)
+        if (response == null) {
             throw new InvalidRequestException("Server didn't sent a response.");
-        if (!response.clientToken.equals(this.clientToken))
+        }
+        if (!response.clientToken.equals(this.clientToken)) {
             throw new InvalidRequestException("Server token and provided token doesn't match.");
+        }
 
         // AuthLib tracks this field, so we do it too in case someone wants to use this library as a drop-in replacement.
         if (response.user != null && response.user.id != null) {
@@ -162,10 +166,13 @@ public class WaybackAuthLib {
         final var request = new InvalidateRequest(this.clientToken, this.accessToken);
         final var response = client.post(this.baseURI.resolve(ROUTE_INVALIDATE).toURL(), request, Response.class); // Mojang doesn't send this request, but it seems useful to invalidate the token.
 
-        if (!this.loggedIn) throw new IllegalStateException("Cannot log out while not logged in.");
+        if (!this.loggedIn) {
+            throw new IllegalStateException("Cannot log out while not logged in.");
+        }
 
-        if (response != null && response.error != null && !response.error.isEmpty())
-            throw new InvalidRequestException(response.error + " - " + response.errorMessage + " - " + response.cause);
+        if (response != null && response.error != null && !response.error.isEmpty()) {
+            throw new InvalidRequestException(response.error, response.errorMessage, response.cause);
+        }
 
         this.accessToken = null;
 
@@ -186,8 +193,9 @@ public class WaybackAuthLib {
      * @param username The username.
      */
     public void setUsername(String username) {
-        if (this.loggedIn && this.currentProfile != null)
+        if (this.loggedIn && this.currentProfile != null) {
             throw new IllegalStateException("Cannot change username whilst logged in & online");
+        }
 
         this.username = username;
     }
@@ -202,8 +210,9 @@ public class WaybackAuthLib {
      * @param password The password.
      */
     public void setPassword(String password) {
-        if (this.loggedIn && this.currentProfile != null)
+        if (this.loggedIn && this.currentProfile != null) {
             throw new IllegalStateException("Cannot set password whilst logged in & online");
+        }
 
         this.password = password;
     }
@@ -218,8 +227,9 @@ public class WaybackAuthLib {
      * @param accessToken The access token.
      */
     public void setAccessToken(String accessToken) {
-        if (this.loggedIn && this.currentProfile != null)
+        if (this.loggedIn && this.currentProfile != null) {
             throw new IllegalStateException("Cannot set access token whilst logged in & online");
+        }
 
         this.accessToken = accessToken;
     }
@@ -316,8 +326,9 @@ public class WaybackAuthLib {
     }
 
     private static class ValidateRequest {
-        private String clientToken;
-        private String accessToken;
+
+        public String clientToken;
+        public String accessToken;
 
         public ValidateRequest(final String accessToken, final String clientToken) {
             this.clientToken = clientToken;
