@@ -1,6 +1,6 @@
 /*
  * This file is part of WaybackAuthLib - https://github.com/FlorianMichael/WaybackAuthLib
- * Copyright (C) 2023 FlorianMichael/EnZaXD and contributors
+ * Copyright (C) 2023-2024 FlorianMichael/EnZaXD <florian.michael07@gmail.com> and contributors
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -26,6 +26,7 @@ import java.net.URI;
 import java.util.*;
 
 public class WaybackAuthLib {
+
     public final static String YGG_PROD = "https://authserver.mojang.com/";
 
     private final static String ROUTE_AUTHENTICATE = "authenticate";
@@ -362,4 +363,5 @@ public class WaybackAuthLib {
         public GameProfile[] availableProfiles;
         public User user;
     }
+
 }
