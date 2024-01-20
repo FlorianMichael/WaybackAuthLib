@@ -27,12 +27,12 @@ import java.util.*;
 
 public class WaybackAuthLib {
 
-    public final static String YGG_PROD = "https://authserver.mojang.com/";
+    public static final String YGG_PROD = "https://authserver.mojang.com/";
 
-    private final static String ROUTE_AUTHENTICATE = "authenticate";
-    private final static String ROUTE_REFRESH = "refresh";
-    private final static String ROUTE_INVALIDATE = "invalidate";
-    private final static String ROUTE_VALIDATE = "validate";
+    private static final String ROUTE_AUTHENTICATE = "authenticate";
+    private static final String ROUTE_REFRESH = "refresh";
+    private static final String ROUTE_INVALIDATE = "invalidate";
+    private static final String ROUTE_VALIDATE = "validate";
 
     private final URI baseURI;
     private final String clientToken;
@@ -277,7 +277,7 @@ public class WaybackAuthLib {
      */
 
     private static class Agent {
-        public final static Agent MINECRAFT = new Agent("Minecraft", 1);
+        public static final Agent MINECRAFT = new Agent("Minecraft", 1);
 
         public String name;
         public int version;
