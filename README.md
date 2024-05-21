@@ -3,17 +3,17 @@ Addon for Mojang's AuthLib to support Yggdrasil authentication again
 ### This library required the AuthLib to be installed as a dependency
 
 ## Why?
-With the release of AuthLib 5.0, Mojang has removed all API methods to log in via the Yggdrasil Authentication system, as Yggdrasil has been officially terminated. However, many third-party log in methods use the Yggdrasil interface as a reference, this library is an addon for the AuthLib which adds all old methods back using the internals of the AuthLib to be as compact as possible.
+With the release of AuthLib 5.0, Mojang has removed all API methods to log in via the Yggdrasil Authentication system, as Yggdrasil has been officially terminated.
+However, many third-party log in methods use the Yggdrasil interface as a reference, this library is an addon for the AuthLib which adds all old methods back using the 
+internals of the AuthLib to be as compact as possible. This library will probably also be used in the future to restore even more methods that have been removed from the AuthLib.
 
 ## Contact
-If you encounter any issues, please report them on the
-[issue tracker](https://github.com/FlorianMichael/WaybackAuthLib/issues).  
-If you just want to talk or need help with WaybackAuthLib feel free to join my
-[Discord](https://discord.gg/BwWhCHUKDf).
+If you encounter any issues, please report them on the [issue tracker](https://github.com/FlorianMichael/WaybackAuthLib/issues).  
+If you just want to talk or need help with WaybackAuthLib feel free to join my [Discord](https://discord.gg/BwWhCHUKDf).
 
 ## How to add this to your project
 ### Gradle/Maven
-To use WaybackAuthLib with Gradle/Maven you can use [Maven Central](https://mvnrepository.com/artifact/de.florianmichael/WaybackAuthLib), [Lenni0451's repository](https://maven.lenni0451.net/#/releases/de/florianmichael/WaybackAuthLib) or [Jitpack](https://jitpack.io/#FlorianMichael/WaybackAuthLib).  
+To use WaybackAuthLib with Gradle/Maven you can use [Maven Central](https://mvnrepository.com/artifact/de.florianmichael/WaybackAuthLib), [Lenni0451's Maven](https://maven.lenni0451.net/#/releases/de/florianmichael/WaybackAuthLib) or [Jitpack](https://jitpack.io/#FlorianMichael/WaybackAuthLib).  
 You can also find instructions how to implement it into your build script there.
 
 ### Jar File
