@@ -5,9 +5,10 @@ plugins {
 }
 
 base {
+    group = project.maven_group
     archivesName = project.maven_name
     version = project.maven_version
-    group = project.maven_group
+    description = project.maven_description
 }
 
 repositories {
@@ -68,7 +69,7 @@ publishing {
 
             pom {
                 name = artifactId
-                description = "Addon for Mojang's AuthLib to support Yggdrasil authentication again"
+                description = project.description
                 url = "https://github.com/FlorianMichael/WaybackAuthLib"
                 licenses {
                     license {
