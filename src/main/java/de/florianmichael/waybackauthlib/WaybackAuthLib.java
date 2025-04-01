@@ -122,7 +122,7 @@ public class WaybackAuthLib {
         }
 
         if (response == null) {
-            throw new InvalidRequestException("Server didn't sent a response.");
+            throw new InvalidRequestException("Server didn't send a response.");
         }
         if (!response.clientToken.equals(this.clientToken)) {
             throw new InvalidRequestException("Server token and provided token doesn't match.");
