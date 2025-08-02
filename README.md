@@ -9,7 +9,7 @@ internals of the AuthLib to be as compact as possible. This library will probabl
 
 ## Contact
 If you encounter any issues, please report them on the [issue tracker](https://github.com/FlorianMichael/WaybackAuthLib/issues).  
-If you just want to talk or need help with WaybackAuthLib feel free to join my [Discord](https://discord.gg/BwWhCHUKDf).
+If you just want to talk or need help with WaybackAuthLib feel free to join my [Discord](https://florianmichael.de/discord).
 
 ## How to add this to your project
 ### Gradle/Maven
