@@ -8,7 +8,6 @@ plugins {
 setupProject()
 setupPublishing()
 
-
 repositories {
     maven("https://libraries.minecraft.net")
 }
