@@ -32,8 +32,8 @@ You can also find instructions how to implement it into your build script there.
 ### Jar File
 
 If you just want the latest jar file you can download it
-from [my build server](https://build.florianmichael.de/job/WaybackAuthLib) or use
-the [releases tab](https://github.com/FlorianMichael/WaybackAuthLib/releases).
+from [my build server](https://build.florianmichael.de/job/WaybackAuthLib), [GitHub Actions](https://github.com/FlorianMichael/WaybackAuthLib/actions)
+or use the [releases tab](https://github.com/FlorianMichael/WaybackAuthLib/releases).
 
 ## Example usage
 
