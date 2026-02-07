@@ -1,6 +1,6 @@
 /*
- * This file is part of WaybackAuthLib - https://github.com/FlorianMichael/WaybackAuthLib
- * Copyright (C) 2023-2026 FlorianMichael/EnZaXD <git@florianmichael.de> and contributors
+ * This file is part of WaybackAuthLib - https://github.com/florianreuth/WaybackAuthLib
+ * Copyright (C) 2023-2026 Florian Reuth <git@florianreuth.de> and contributors
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package de.florianmichael.waybackauthlib;
+package de.florianreuth.waybackauthlib;
 
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.minecraft.client.MinecraftClient;

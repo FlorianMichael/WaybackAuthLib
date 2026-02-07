@@ -16,24 +16,24 @@ even more methods that have been removed from the AuthLib.
 ## Contact
 
 If you encounter any issues, please report them on
-the [issue tracker](https://github.com/FlorianMichael/WaybackAuthLib/issues).  
+the [issue tracker](https://github.com/florianreuth/WaybackAuthLib/issues).  
 If you just want to talk or need help with WaybackAuthLib feel free to join
-my [Discord](https://florianmichael.de/discord).
+my [Discord](https://florianreuth.de/discord).
 
 ## How to add this to your project
 
 ### Gradle/Maven
 
 To use WaybackAuthLib with Gradle/Maven you can
-use [the Maven Central repository](https://mvnrepository.com/artifact/de.florianmichael/WaybackAuthLib)
-or [my own repository](https://maven.florianmichael.de/#/releases/de/florianmichael/WaybackAuthLib).  
+use [the Maven Central repository](https://mvnrepository.com/artifact/de.florianreuth/waybackauthlib)
+or [my own repository](https://maven.florianreuth.de/#/releases/de/florianreuth/waybackauthlib).  
 You can also find instructions how to implement it into your build script there.
 
 ### Jar File
 
 If you just want the latest jar file you can download it
-from [my build server](https://build.florianmichael.de/job/WaybackAuthLib), [GitHub Actions](https://github.com/FlorianMichael/WaybackAuthLib/actions)
-or use the [releases tab](https://github.com/FlorianMichael/WaybackAuthLib/releases).
+from [my build server](https://build.florianreuth.de/job/WaybackAuthLib), [GitHub Actions](https://github.com/florianreuth/WaybackAuthLib/actions)
+or use the [releases tab](https://github.com/florianreuth/WaybackAuthLib/releases).
 
 ## Example usage
 
